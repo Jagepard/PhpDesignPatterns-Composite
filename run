@@ -1,0 +1,18 @@
+#! usr/bin/env php
+<?php
+
+namespace Structural\Composite;
+
+require_once 'vendor/autoload.php';
+
+$root = new Composite('root');
+
+$root->add(new Composite('root'));
+$root->add(new Leaf('first'));
+$root->add(new Leaf('second'));
+
+$root->getChild('root')->add(new Leaf('first'));
+$root->getChild('root')->add(new Leaf('second'));
+$root->getChild('root')->add(new Composite('root'));
+
+var_dump($root);

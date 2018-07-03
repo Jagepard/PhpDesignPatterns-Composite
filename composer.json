@@ -1,13 +1,13 @@
 {
-    "name"        : "php-design-patterns/composite",
-    "description" : "PhpDesignPatterns",
-    "type"        : "library",
-    "keywords"    : [
-        "patterns",
-        "design-patterns"
+    "name"             : "php-design-patterns/composite",
+    "description"      : "PhpDesignPatterns",
+    "type"             : "library",
+    "keywords"         : [
+        "composite",
+        "design-pattern"
     ],
-    "license"     : "MIT",
-    "authors"     : [
+    "license"          : "MIT",
+    "authors"          : [
         {
             "name"    : "Danila Korotkov (Jagepard)",
             "email"   : "jagepard@yandex.ru",
@@ -15,22 +15,26 @@
             "role"    : "Developer"
         }
     ],
-
-    "support"     : {
+    "support"          : {
         "email": "jagepard@yandex.ru",
         "skype": "jagepard.ru"
     },
-
-    "autoload": {
-        "psr-4": {
-            "Structural\\Composite\\":"src/"
-        }
-    },
-
-    "require": {
+    "require"          : {
         "php": ">=7.0"
     },
-
+    "require-dev"      : {
+        "phpunit/phpunit": "^7"
+    },
+    "autoload"         : {
+        "psr-4": {
+            "Structural\\Composite\\": "src/"
+        }
+    },
+    "autoload-dev"     : {
+        "psr-4": {
+            "Structural\\Composite\\Tests\\": "tests/"
+        }
+    },
     "minimum-stability": "dev",
-    "prefer-stable" : true
+    "prefer-stable"    : true
 }

@@ -15,4 +15,4 @@ $root->getChild('root')->add(new Leaf('first'));
 $root->getChild('root')->add(new Leaf('second'));
 $root->getChild('root')->add(new Composite('root'));
 
-var_dump($root);
+print_r($root);

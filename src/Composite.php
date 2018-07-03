@@ -1,25 +1,27 @@
 <?php
+
+declare(strict_types=1);
+
 /**
- * Date: 02.04.18
- * Time: 13:35
- *
  * @author    : Korotkov Danila <dankorot@gmail.com>
- * @copyright Copyright (c) 2018, Korotkov Danila
- * @license   http://www.gnu.org/licenses/gpl.html GNU GPLv3.0
+ * @license   https://mit-license.org/ MIT
  */
 
 namespace Structural\Composite;
 
-
-class Composite extends Component
+/**
+ * Class Composite
+ * @package Structural\Composite
+ */
+class Composite extends AbstractComponent
 {
 
     /**
-     * @param Component $component
+     * @param AbstractComponent $component
      */
-    public function add(Component $component): void
+    public function add(AbstractComponent $component): void
     {
-        $this->children[$component->getName()] = $component;
+        $this->children[$component->name] = $component;
     }
 
     /**
@@ -33,11 +35,13 @@ class Composite extends Component
     }
 
     /**
-     * @param null $key
-     * @return array|mixed
+     * @param string $key
+     * @return AbstractComponent
      */
-    public function getChild($key = null)
+    public function getChild(string $key): AbstractComponent
     {
-        return $this->children[$key] ?? $this->children;
-    }
+        if (array_key_exists($key, $this->children)) {
+            return $this->children[$key];
+        }
+    } // @codeCoverageIgnore
 }

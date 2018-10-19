@@ -7,3 +7,5 @@
 
 # Composite | [API](https://github.com/Jagepard/PhpDesignPatterns-Composite/blob/master/docs.md "Documentation API")
 Компоновщик
+
+![Composite](https://github.com/Jagepard/PhpDesignPatterns-Composite/blob/master/UML.png)

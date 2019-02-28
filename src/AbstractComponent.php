@@ -15,7 +15,6 @@ namespace Structural\Composite;
  */
 abstract class AbstractComponent
 {
-
     /**
      * @var string
      */

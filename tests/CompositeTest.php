@@ -20,11 +20,10 @@ use PHPUnit\Framework\TestCase as PHPUnit_Framework_TestCase;
  */
 class CompositeTest extends PHPUnit_Framework_TestCase
 {
-
     /**
      * @var Composite
      */
-    protected $root;
+    private $root;
 
     protected function setUp(): void
     {
@@ -34,17 +33,24 @@ class CompositeTest extends PHPUnit_Framework_TestCase
     public function testComposite()
     {
         $this->assertInstanceOf(AbstractComponent::class, $this->root);
-
-        $this->root->add(new Composite('root'));
-        $this->assertInstanceOf(Composite::class, $this->root->getChild('root'));
-        $this->assertEquals('root', $this->root->getChild('root')->getName());
-        $this->root->remove('root');
+        $this->getRoot()->add(new Composite('root'));
+        $this->assertInstanceOf(Composite::class, $this->getRoot()->getChild('root'));
+        $this->assertEquals('root', $this->getRoot()->getChild('root')->getName());
+        $this->getRoot()->remove('root');
     }
 
     public function testLeaf()
     {
-        $this->root->add(new Composite('root'));
-        $this->root->getChild('root')->add(new Leaf('first'));
-        $this->assertInstanceOf(Leaf::class, $this->root->getChild('root')->getChild('first'));
+        $this->getRoot()->add(new Composite('root'));
+        $this->getRoot()->getChild('root')->add(new Leaf('first'));
+        $this->assertInstanceOf(Leaf::class, $this->getRoot()->getChild('root')->getChild('first'));
+    }
+
+    /**
+     * @return Composite
+     */
+    public function getRoot(): Composite
+    {
+        return $this->root;
     }
 }

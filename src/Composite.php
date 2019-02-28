@@ -15,22 +15,21 @@ namespace Structural\Composite;
  */
 class Composite extends AbstractComponent
 {
-
     /**
      * @param AbstractComponent $component
      */
     public function add(AbstractComponent $component): void
     {
-        $this->children[$component->name] = $component;
+        $this->children[$component->getName()] = $component;
     }
 
     /**
-     * @param string $componentName
+     * @param string $key
      */
-    public function remove(string $componentName): void
+    public function remove(string $key): void
     {
-        if (array_key_exists($componentName, $this->children)) {
-            unset($this->children[$componentName]);
+        if (array_key_exists($key, $this->children)) {
+            unset($this->children[$key]);
         }
     }
 

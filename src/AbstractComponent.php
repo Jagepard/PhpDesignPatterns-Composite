@@ -9,20 +9,12 @@ declare(strict_types=1);
 
 namespace Structural\Composite;
 
-/**
- * Class Component
- * @package Structural\Composite
- */
 abstract class AbstractComponent
 {
     /**
      * @var string
      */
     protected $name;
-    /**
-     * @var array
-     */
-    protected $children = [];
 
     /**
      * Component constructor.

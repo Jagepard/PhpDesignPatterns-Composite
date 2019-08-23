@@ -6,6 +6,8 @@
 -----
 
 # Composite | [API](https://github.com/Jagepard/PhpDesignPatterns-Composite/blob/master/docs.md "Documentation API")
+```php run``` Запустить исполнение шаблона в терминале
+
 Компоновщик
 
 ![Composite](https://github.com/Jagepard/PhpDesignPatterns-Composite/blob/master/UML.png)

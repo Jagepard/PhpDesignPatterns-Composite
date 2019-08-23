@@ -14,10 +14,6 @@ use Structural\Composite\Leaf;
 use Structural\Composite\Composite;
 use PHPUnit\Framework\TestCase as PHPUnit_Framework_TestCase;
 
-/**
- * Class CompositeTest
- * @package Structural\Composite\Tests
- */
 class CompositeTest extends PHPUnit_Framework_TestCase
 {
     /**

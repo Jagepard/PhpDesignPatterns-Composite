@@ -9,10 +9,6 @@ declare(strict_types=1);
 
 namespace Structural\Composite;
 
-/**
- * Class Leaf
- * @package Structural\Composite
- */
 class Leaf extends AbstractComponent
 {
 }

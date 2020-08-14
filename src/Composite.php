@@ -3,22 +3,16 @@
 declare(strict_types=1);
 
 /**
- * @author    : Korotkov Danila <dankorot@gmail.com>
- * @license   https://mit-license.org/ MIT
+ * @author  : Jagepard <jagepard@yandex.ru>
+ * @license https://mit-license.org/ MIT
  */
 
 namespace Structural\Composite;
 
 class Composite extends AbstractComponent implements CompositeInterface
 {
-    /**
-     * @var array
-     */
-    protected $children = [];
+    protected array $children = [];
 
-    /**
-     * @param AbstractComponent $component
-     */
     public function add(AbstractComponent $component): void
     {
         if (array_key_exists($component->getName(), $this->children)) {
@@ -28,9 +22,6 @@ class Composite extends AbstractComponent implements CompositeInterface
         $this->children[$component->getName()] = $component;
     }
 
-    /**
-     * @param string $key
-     */
     public function remove(string $key): void
     {
         if (!array_key_exists($key, $this->children)) {
@@ -40,33 +31,36 @@ class Composite extends AbstractComponent implements CompositeInterface
         unset($this->children[$key]);
     }
 
-    /**
-     * @param string $key
-     * @return mixed|AbstractComponent|CompositeInterface
-     */
     public function getChild(string $key)
     {
         if (array_key_exists($key, $this->children)) {
-            if ($this->children[$key] instanceof CompositeInterface) {
-                return $this->getComposite($key);
-            }
-
             return $this->children[$key];
         }
 
         throw new \InvalidArgumentException("Element {$key} doesn't exist");
     } // @codeCoverageIgnore
 
-    /**
-     * @param string $key
-     * @return CompositeInterface
-     */
-    private function getComposite(string $key): CompositeInterface
+    public function printTree(AbstractComponent $child = null, $tab = null): void
     {
-        if (array_key_exists($key, $this->children)) {
-            return $this->children[$key];
-        }
+        $parent = !isset($child) ? $this : $child;
+        echo $tab . $parent->getName() . ": " . "\n";
 
-        throw new \InvalidArgumentException("Element {$key} doesn't exist");
+        if (count($parent->getChildren()) !== 0) {
+            $tab = $tab . "\t";
+            foreach ($parent->getChildren() as $child) {
+                if ($child instanceof Composite) {
+                    $this->printTree($child, $tab);
+                } else {
+                    echo $tab . $child->getName() . "\n";
+                }
+            }
+
+            return;
+        }
+    }
+
+    public function getChildren(): array
+    {
+        return $this->children;
     }
 }

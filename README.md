@@ -6,8 +6,19 @@
 -----
 
 # Composite | [API](https://github.com/Jagepard/PhpDesignPatterns-Composite/blob/master/docs.md "Documentation API")
-```php run``` Запустить исполнение шаблона в терминале
 
-Компоновщик
+```php main.php``` execute in terminal
 
-![Composite](https://github.com/Jagepard/PhpDesignPatterns-Composite/blob/master/UML.png)
+## Result:
+```
+Structure:
+--------------------------------
+Composite: 
+        Leaf:first
+        Leaf:second
+        Composite - 1: 
+                Leaf:first
+                Leaf:second
+                Composite - 2: 
+--------------------------------
+```

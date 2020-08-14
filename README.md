@@ -6,6 +6,7 @@
 -----
 
 # Composite | [API](https://github.com/Jagepard/PhpDesignPatterns-Composite/blob/master/docs.md "Documentation API")
+
 ```php main.php``` execute in terminal
 
 ## Result:

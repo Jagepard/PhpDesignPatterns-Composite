@@ -11,12 +11,13 @@
 ## Result:
 ```
 Structure:
----------------------
-root (Composite):
-    first (Leaf)
-    second (Leaf)
-    root (Composite):
-        first (Leaf)
-        second (Leaf)
-----------------------
+--------------------------------
+Composite: 
+        Leaf:first
+        Leaf:second
+        Composite - 1: 
+                Leaf:first
+                Leaf:second
+                Composite - 2: 
+--------------------------------
 ```

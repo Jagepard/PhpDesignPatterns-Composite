@@ -42,7 +42,7 @@ class Composite extends AbstractComponent implements CompositeInterface
 
     public function printTree(AbstractComponent $child = null, $tab = null): void
     {
-        $parent = !isset($child) ? $this : $child;
+        $parent = $child ?? $this;
         echo $tab . $parent->getName() . ": " . "\n";
 
         if (count($parent->getChildren()) !== 0) {

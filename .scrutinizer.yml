@@ -3,7 +3,7 @@ build:
         analysis:
             tests:
                 override:
-                    - php-scrutinizer-main.php
+                    - php-scrutinizer-run
 checks:
     php: true
 filter: {  }
